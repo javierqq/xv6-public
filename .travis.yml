@@ -1,0 +1,14 @@
+language: c
+script: make && make fs.img
+deploy:
+  provider: releases
+  api_key:
+    secure: nBI4NEcvMse8WhdQt74EcUAQhYxmDS5Bxf8qyqoV7oj34iwBglHEOkreDi+V7vwNglDiNouW8nYhwgmqu0TzjHN9PQf9dANXI86rfCZ6IHEJYI8In6VT/NDF5gl/uOjr1pPEC+FG+yOynNw8AK4nlFIDfXZkgvt4p8TTV6Q6l/34qqMOVAuEYse2W7pajoO8u6soros6/eHmsrVpu4dqcxwA1SaGZbXuz+/XWK881tCf92nDb8ysALt7Fy4H88z527FQugfDX7YzzwbvJc8RgwOCuIFh6pHTReZf0zV1hBsr33beTalVsC4NKxn+T/pXV7qGtK2DEKpTsZGHRnbFrY/QwJLSOduI+PbNxHWoI4017xf3PUPHHqoi1Zu00wrOK3Azu5Bry3PY/S2LLbn/Ky8CUvY+PHXlti7RmJsLcQl468MUL3Il/wsG34x1L0F3Hqc4TpN4Y+fTke4cYptXgjoKmY+quy6A+XMmiujD3IY1nqp3Zr/6sEr3b8g7+c8Cl6vfndMTR171tR7tL+goYnbiCGzPxP0Kta6kY534WYNQ57dF09Mb7IDVjfLEH9WYGob/rNDRAkDql+6X3cfnN0XEIeE63NRyFFtA4ycmkXHtjzSR3gWId+Bdoe5FFSaFWw5uG3KeqiQmsQRJQWckmduP3XPlck8SoayaZBwpmlA=
+  file:
+    - fs.img
+    - xv6.img
+  skpi_cleanup: true
+  on:
+    repo: javierqq/xv6-public
+    branch: project_1
+    tags: true
