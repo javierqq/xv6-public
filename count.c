@@ -5,6 +5,6 @@
 int
 main(void)
 {
-printf(1, “Processes running %d\n”, getprocs());
-exit();
+  printf(1, “Processes running %d\n”, getprocs());
+  exit();
 }
