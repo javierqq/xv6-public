@@ -93,6 +93,5 @@ sys_uptime(void)
 int
 sys_getprocs(void)
 {
-  lista = proc_listpids(PROC_ALL_PIDS, 0, NULL, 0);
-  printf(lista);
+  enum procstate {RUNNING};
 }
