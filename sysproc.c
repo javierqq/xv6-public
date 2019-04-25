@@ -93,8 +93,13 @@ sys_uptime(void)
 int
 sys_getprocs(void)
 {
+  count = 0;
   procdump();
   //enum procstate num;
   //num = RUNNING;
-  return 1;
+  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+    if(p->state ==  RUNNING)
+      count++;
+
+  return count;
 }
