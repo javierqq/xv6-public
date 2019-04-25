@@ -96,5 +96,5 @@ sys_getprocs(void)
   procdump();
   //enum procstate num;
   //num = RUNNING;
-  return true;
+  return 1;
 }
