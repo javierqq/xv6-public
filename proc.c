@@ -542,7 +542,7 @@ sys_getprocs(void)
   //enum procstate num;
   //num = RUNNING;
   for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
-    if(p->state ==  RUNNING || p->state ==  SLEEPING)
+    if(p->state !=  UNUSED && p->state !=  ZOMBIE)
       count++;
   }
 
