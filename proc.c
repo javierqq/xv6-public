@@ -313,6 +313,21 @@ wait(void)
   }
 }
 
+int lottery_Total(void){
+  struct proc *p;
+  int ticket_aggregate=0;
+
+//loop over process table and increment total tickets if a runnable process is found
+  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++)
+  {
+    if(p->state==RUNNABLE){
+      ticket_aggregate+=p->tickets;
+    }
+  }
+  return ticket_aggregate;          // returning total number of tickets for runnable processes
+}
+
+
 //PAGEBREAK: 42
 // Per-CPU process scheduler.
 // Each CPU calls scheduler() after setting itself up.
