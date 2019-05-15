@@ -1,5 +1,12 @@
 // Routines to let C code use special x86 instructions.
 
+static inline void
+hlt()
+{
+  asm volatile("hlt");
+}
+
+
 static inline uchar
 inb(ushort port)
 {
