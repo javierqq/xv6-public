@@ -343,41 +343,36 @@ scheduler(void)
   struct cpu *c = mycpu();
   c->proc = 0;
   int foundproc = 1;
-  int count = 0;
-  long golden_ticket = 0;
-  int total_no_tickets = 0;
+
 
   for(;;){
     // Enable interrupts on this processor.
     sti();
 
-    if (!foundproc) hlt();
-    foundproc = 0;
-
-    acquire(&ptable.lock);
-
-    //resetting the variables to make scheduler start from the beginning of the process queue
-    golden_ticket = 0;
-    count = 0;
-    total_no_tickets = 0;
-
-    //calculate Total number of tickets for runnable processes
-
-    total_no_tickets = lottery_Total();
-
-    //pick a random ticket from total available tickets
-    golden_ticket = random_at_most(total_no_tickets);
+    int tickets_passed=0;
+    int totalTickets = 0;
 
     for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
       if(p->state != RUNNABLE)
         continue;
+      totalTickets = totalTickets + p->tickets;
+    }
 
-      //find the process which holds the lottery winning ticket
-      if ((count + p->tickets) < golden_ticket){
-        count += p->tickets;
+    long winner = random_at_most(totalTickets);
+
+
+    if (!foundproc) hlt();
+    foundproc = 0;
+
+    // Loop over process table looking for process to run.
+    acquire(&ptable.lock);
+    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+      if(p->state != RUNNABLE)
+        continue;
+      tickets_passed += p->tickets;
+      if(tickets_passed<winner){
         continue;
       }
-
 
       foundproc = 1;
       c->proc = p;
