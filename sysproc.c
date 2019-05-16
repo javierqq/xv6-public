@@ -89,14 +89,14 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
-
+/*
 int
 sys_getprocs(void)
 {
   lista = proc_listpids(PROC_ALL_PIDS, 0, NULL, 0);
   printf(lista);
 }
-
+*/
 int
 sys_settickets(void)
 {
