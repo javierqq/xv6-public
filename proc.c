@@ -574,8 +574,9 @@ int
 sys_settickets(void)
 {
   int n;
+  struct proc *p;
   if(argint(0, &n) < 0)
     return -1;
-  proc->tickets = n;
+  p->tickets = n;
   return n;
 }
