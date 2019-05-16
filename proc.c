@@ -569,3 +569,13 @@ procdump(void)
     cprintf("\n");
   }
 }
+
+int
+sys_settickets(void)
+{
+  int n;
+  if(argint(0, &n) < 0)
+    return -1;
+  proc->tickets = n;
+  return n;
+}
