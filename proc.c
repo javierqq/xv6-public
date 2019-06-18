@@ -535,29 +535,15 @@ procdump(void)
 
 int translate(void* vaddr)
 {
-      cprintf("vaddr = %p\n",vaddr);
- int paddr;
- pde_t *pgdir;
- pte_t *pgtab;
- pde_t *pde;
- pte_t *pte;
+  struct proc *process = myproc();   //accedo al proceso actual
+  int pgtab;
+  if(PTE_P){
+    pgtab = (int)P2V(PTE_ADDR(process->pgdir));  //P2V() suma 0x80000000 y PTE tiene la dirección física
 
- pgdir = (pde_t*)cpu->ts.cr3;
- cprintf("page directory base is: %p\n",cpu->ts.cr3);
- pde = &pgdir[PDX(vaddr)];
- if(*pde & PTE_P){
- pgtab = (pte_t*)P2V(PTE_ADDR(*pde));
- }else{
- cprintf("pde = %d\n",*pde);
- cprintf("PTE_P = %d\n",PTE_P);
- cprintf("pte not present\n");
- return -1;
- }
- pte = &pgtab[PTX(vaddr)];
- paddr = PTE_ADDR(*pte);
-  cprintf("the virtual address is %p\n",vaddr);
-  cprintf("the physical address is %d\n",paddr);
-
-  return 0;
+    return pgtab;
+  }
+  else{
+    return 0;
+  }
 
 }
