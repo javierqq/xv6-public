@@ -5,6 +5,6 @@
 int
 main(void)
 {
-  printf(1, "Processes running %d\n", getprocs());
+  printf(1, "Address %d\n", translate());
   return 0;
 }
