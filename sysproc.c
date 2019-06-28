@@ -99,7 +99,7 @@ sys_getprocs(void)
 }
 
 int
-sys_VirtualToPhysical(void)
+sys_traduccion(void)
 {
-  return VirtualToPhysical();
+  return traduccion();
 }
