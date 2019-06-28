@@ -11,7 +11,7 @@ main(void)
         exit();
     }
     else{
-        printf(1,"Direccion fisica: %x", dirfis);
+        printf(1,"Direccion fisica: %x\n", dirfis);
         exit();
     }
 }
