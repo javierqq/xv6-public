@@ -533,7 +533,8 @@ procdump(void)
   }
 }
 
-int translate(void)
+int
+translate(void)
 {
   struct proc *process = myproc();   //accedo al proceso actual
    int pgtab;
