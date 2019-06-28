@@ -7,11 +7,11 @@ main(void)
 {
   int dirfis = traduccion();
     if(dirfis == 0){
-        printf(1,"La direccion no es válida");
+        printf(1,"Direccion no valida");
         exit();
     }
     else{
-        printf(1,"La direccion fisica es: %x", dirfis);
+        printf(1,"Direccion fisica: %x", dirfis);
         exit();
     }
 }
