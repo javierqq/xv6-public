@@ -24,7 +24,7 @@ char* sbrk(int);
 int sleep(int);
 int uptime(void);
 int getprocs(void); //new
-int translate(void); //new
+int traduccion(void); //new
 
 // ulib.c
 int stat(const char*, struct stat*);

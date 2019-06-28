@@ -104,7 +104,7 @@ extern int sys_wait(void);
 extern int sys_write(void);
 extern int sys_uptime(void);
 extern int sys_getprocs(void); //new
-extern int translate(void); //new
+extern int traduccion(void); //new
 
 static int (*syscalls[])(void) = {
 [SYS_fork]    sys_fork,
@@ -129,7 +129,7 @@ static int (*syscalls[])(void) = {
 [SYS_mkdir]   sys_mkdir,
 [SYS_close]   sys_close,
 [SYS_getprocs]  sys_getprocs, //new
-[SYS_translate] sys_translate,
+[SYS_translate] sys_traduccion,
 };
 
 void

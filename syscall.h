@@ -21,4 +21,4 @@
 #define SYS_mkdir  20
 #define SYS_close  21
 #define SYS_getprocs 22 //new
-#define SYS_translate 23 //new
+#define SYS_traduccion 23 //new
