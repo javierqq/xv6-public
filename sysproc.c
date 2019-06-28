@@ -97,3 +97,9 @@ sys_getprocs(void)
   //printf(lista);
   return 0;
 }
+
+int
+sys_VirtualToPhysical(void)
+{
+  return VirtualToPhysical();
+}
