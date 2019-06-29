@@ -89,3 +89,8 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+int
+SYS_getprocs(void){
+  return getprocs();
+}

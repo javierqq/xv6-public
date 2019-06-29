@@ -534,7 +534,7 @@ procdump(void)
 }
 
 int
-sys_getprocs(void)
+getprocs(void)
 {
   int count = 0;
   struct proc *p;
