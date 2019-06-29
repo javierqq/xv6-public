@@ -91,6 +91,6 @@ sys_uptime(void)
 }
 
 int
-SYS_getprocs(void){
+sys_getprocs(void){
   return getprocs();
 }
